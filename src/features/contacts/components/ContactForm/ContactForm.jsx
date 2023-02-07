@@ -5,7 +5,9 @@ import 'yup-phone';
 import { Box, Button, TextField } from '@mui/material';
 import { InputWrapper } from './ContactForm.styled';
 import { addContactOperation } from 'features/contacts/contacts.operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts } from 'app/selectors';
+import { chekExistName, chekExistNumber } from 'features/contacts/services';
 
 const validationSchema = yup.object().shape({
   name: yup.string().required(),
@@ -14,6 +16,7 @@ const validationSchema = yup.object().shape({
 
 export default function ContactForm() {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
   const formik = useFormik({
     initialValues: {
@@ -26,8 +29,15 @@ export default function ContactForm() {
         name: values.name,
         number: values.number,
       };
-      dispatch(addContactOperation(contact));
-      actions.resetForm();
+
+      if (chekExistName(values.name, contacts)) {
+        window.alert(values.name + ' is already in contacts');
+      } else if (chekExistNumber(values.number, contacts)) {
+        window.alert('Number ' + values.number + ' is already in contacts');
+      } else {
+        dispatch(addContactOperation(contact));
+        actions.resetForm();
+      }
     },
   });
 

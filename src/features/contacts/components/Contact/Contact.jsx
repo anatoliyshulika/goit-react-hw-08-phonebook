@@ -7,9 +7,10 @@ import {
   Avatar,
   ListItemText,
 } from '@mui/material';
+import { StyledA } from './Contact.styled';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Create } from '@mui/icons-material';
-import stringAvatar from '../../services/stringAvatar';
+import { stringAvatar } from 'features/contacts/services';
 import { useState } from 'react';
 import ModalDelete from '../ModalDelete/ModalDelete';
 import ModalUpdate from '../ModalUpdate/ModalUpdate';
@@ -41,10 +42,12 @@ export default function Contact({ contact }) {
         </>
       }
     >
-      <ListItemAvatar>
-        <Avatar {...stringAvatar(name)} />
-      </ListItemAvatar>
-      <ListItemText primary={name} secondary={number} />
+      <StyledA href={`tel:${number}`}>
+        <ListItemAvatar>
+          <Avatar {...stringAvatar(name)} />
+        </ListItemAvatar>
+        <ListItemText primary={name} secondary={number} />
+      </StyledA>
 
       <ModalDelete
         open={openModalDelete}

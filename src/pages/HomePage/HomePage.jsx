@@ -10,6 +10,16 @@ export default function HomePage() {
       }}
     >
       <Box sx={{ flexGrow: 1, overflow: 'hidden', position: 'relative' }}>
+        <Typography
+          variant="h5"
+          component="p"
+          color="#2d73ae"
+          textAlign="center"
+          fontWeight="700"
+          fontSize="29px"
+        >
+          YOUR SURROUNDINGS, YOUR LIFE. MANAGE YOUR CONTACTS, MANAGE YOUR LIFE!
+        </Typography>
         <Box
           sx={{
             width: '1152px',
@@ -21,15 +31,6 @@ export default function HomePage() {
             justifyContent: 'center',
           }}
         >
-          <Typography
-            variant="h3"
-            component="p"
-            color="white"
-            textAlign="center"
-          >
-            Your surroundings, your life. Manage your contacts, manage your
-            life!
-          </Typography>
           <Box
             sx={{
               flexGrow: 1,
@@ -42,6 +43,7 @@ export default function HomePage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              textAlign: 'center',
             }}
           >
             <Typography>

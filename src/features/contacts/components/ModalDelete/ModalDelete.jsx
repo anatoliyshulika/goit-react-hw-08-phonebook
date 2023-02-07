@@ -42,7 +42,10 @@ export default function ModalDelete({ open, setOpen, id }) {
           <Button
             variant="contained"
             color="error"
-            onClick={() => dispatch(deleteContactOperation(id))}
+            onClick={() => {
+              dispatch(deleteContactOperation(id));
+              setOpen(false);
+            }}
           >
             Delete
           </Button>

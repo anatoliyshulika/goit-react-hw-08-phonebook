@@ -11,8 +11,6 @@ function removeToken() {
   axios.defaults.headers.common.Authorization = '';
 }
 
-// ertyhhghjkmnbvv
-
 export const registerOperation = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {

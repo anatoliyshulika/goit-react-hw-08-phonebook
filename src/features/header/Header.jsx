@@ -16,12 +16,11 @@ import { logOutOperation } from 'features/authentication/auth.apioperations';
 
 export default function Header() {
   const dispatch = useDispatch();
+  const isLogedin = useSelector(selectIsLogedin);
 
   function logOut() {
     dispatch(logOutOperation());
   }
-
-  const isLogedin = useSelector(selectIsLogedin);
 
   return (
     <Container
